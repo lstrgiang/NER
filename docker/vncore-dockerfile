@@ -1,0 +1,12 @@
+FROM openjdk:8-jdk-alpine
+LABEL GiangLST <lstrgiang@gmail.com>
+RUN apk add --no-cache bash
+RUN apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python
+RUN python3 -m ensurepip
+RUN pip3 install --no-cache --upgrade pip setuptools
+RUN pip3 install vncorenlp
+COPY ./packages/VnCoreNLP-1.1.1.jar /VnCoreNLP-1.1.1.jar
+COPY ./scripts/vncore.sh /entrypoint.sh
+COPY ./packages/models/ /models
+WORKDIR /
+ENTRYPOINT ["/bin/bash","/entrypoint.sh"]

@@ -1,0 +1,22 @@
+version: '2.4'
+
+services:
+  neuro-ner:
+    build:
+      context: .
+      dockerfile: ./docker/neuroner-dockerfile
+    image: neucorenlp
+    container_name: nlp-enner
+    ports:
+      - '9000:9000'
+    oom_kill_disable: true
+
+  vncore:
+    build:
+      context: .
+      dockerfile: ./docker/vncore-dockerfile
+    image: nlp-viner
+    container_name: nlp-viner
+    ports:
+      - '9001:9000'
+

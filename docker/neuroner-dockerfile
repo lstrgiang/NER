@@ -1,0 +1,8 @@
+FROM openjdk:8-jdk-alpine
+LABEL GiangLST <lstrgiang@gmail.com>
+RUN apk add --no-cache curl bash unzip
+COPY ./packages/corenlp.zip /ner/corenlp.zip
+WORKDIR /ner
+RUN unzip corenlp.zip 
+WORKDIR /ner/corenlp
+ENTRYPOINT ["/bin/bash","entrypoint.sh"]
