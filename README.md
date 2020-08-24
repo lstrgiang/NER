@@ -28,6 +28,10 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
+## Prepare packages 
+- Go to `packages/corenlp/` directory and execute `setup.sh`
+- Go to `packages/vncore/` directory and execute `setup.sh`
+
 ## Start CoreNLP Server 
 
 - Go to `packages` directory
